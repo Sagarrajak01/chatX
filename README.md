@@ -18,55 +18,58 @@ Supports login, signup, and instant messaging across multiple users.
 ## 📁 Folder Structure
 chatX/
 │
-├── backend/                      
-│   ├── controllers/              # 🧠 Logic for routes
-│   │   └── authController.js
-│   │   └── chatController.js
+├── backend/                        # ⚙️ Backend code (Node.js + Express + MongoDB)
+│   ├── controllers/               # 🧠 Route logic
+│   │   ├── authController.js
+│   │   └── messageController.js
 │
-│   ├── models/                   # 🗃️ Mongoose schemas
-│   │   └── User.js
+│   ├── models/                    # 🗃️ Mongoose schemas
+│   │   ├── User.js
 │   │   └── Message.js
 │
-│   ├── routes/                   # 📬 API routes
-│   │   └── authRoutes.js
-│   │   └── chatRoutes.js
+│   ├── routes/                    # 🚦 API routes
+│   │   ├── authRoutes.js
+│   │   └── messageRoutes.js
 │
-│   ├── config/                   # 🔧 MongoDB connection setup
-│   │   └── db.js
-│
-│   ├── middleware/               # 🛡️ JWT/auth middleware
+│   ├── middleware/               # 🛡️ Auth or error middleware
 │   │   └── authMiddleware.js
 │
-│   ├── socket.js                 # 📡 Socket.IO real-time messaging
-│   ├── server.js                 # 🚀 Express app entry point
-│   └── .env                      # 🔐 Backend secrets (Mongo URI, JWT secret)
+│   ├── config/                   # 🔧 DB & other config
+│   │   └── db.js                 # MongoDB connection
 │
-├── frontend/                     
-│   ├── public/                   
+│   ├── socket/                   # 📡 Socket.IO events
+│   │   └── index.js
+│
+│   ├── server.js                 # 🚀 Main entry point
+│   └── .env                      # 🔐 Env variables (e.g., MONGO_URI, JWT_SECRET)
+│
+├── frontend/                      # 💻 React frontend
+│   ├── public/
 │   │   └── index.html
 │
 │   ├── src/
-│   │   ├── components/           
-│   │   │   └── ChatBox.jsx
-│   │   │   └── Message.jsx
+│   │   ├── components/           # 🧩 Reusable UI components
+│   │   │   ├── ChatBox.jsx
+│   │   │   ├── Message.jsx
 │   │   │   └── Navbar.jsx
 │   │
-│   │   ├── pages/                
-│   │   │   └── Login.jsx
-│   │   │   └── Signup.jsx
+│   │   ├── pages/                # 📄 Screens/pages
+│   │   │   ├── Login.jsx
+│   │   │   ├── Signup.jsx
 │   │   │   └── Chat.jsx
 │   │
-│   │   ├── api.js                # Axios base instance
-│   │   ├── App.jsx               
-│   │   └── main.jsx              
+│   │   ├── utils/                # 🛠️ Axios instance, helpers
+│   │   │   └── api.js
+│   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │
-│   ├── .env                      # VITE_API_URL
-│   └── vite.config.js            
+│   ├── .env                      # e.g., VITE_API_URL
+│   └── vite.config.js
 │
 ├── README.md
 ├── .gitignore
-└── package.json                 
----
+└── package.json
 
 ## ⚙️ How to Run Locally
 
