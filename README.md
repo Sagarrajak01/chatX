@@ -30,7 +30,7 @@ npm install
 npm run dev
 
 📦 Tech Stack
-Frontend: React, Axios, Tailwind CSS (optional)
-Backend: Node.js, Express, MongoDB (if using database), Socket.IO
+Frontend: React, Axios, Tailwind CSS
+Backend: Node.js, Express, MongoDB , Socket.IO
 Authentication: JWT / bcrypt
 Real-time: WebSockets (via Socket.IO)
