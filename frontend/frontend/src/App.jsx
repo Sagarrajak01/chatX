@@ -1,36 +1,30 @@
-// App.jsx
 import Navbar from "./components/Navbar";
+
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore";
 import { useThemeStore } from "./store/useThemeStore";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
-import { gsap } from "gsap";
 
 const App = () => {
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
   const { theme } = useThemeStore();
-  const appRef = useRef(null);
+
+  console.log({ onlineUsers });
 
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
 
-  useEffect(() => {
-    if (!isCheckingAuth) {
-      gsap.fromTo(
-        appRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
-      );
-    }
-  }, [isCheckingAuth]);
+  console.log({ authUser });
 
   if (isCheckingAuth && !authUser)
     return (
@@ -40,8 +34,9 @@ const App = () => {
     );
 
   return (
-    <div ref={appRef} data-theme={theme} className="min-h-screen bg-base-100">
+    <div data-theme={theme}>
       <Navbar />
+
       <Routes>
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
         <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
@@ -49,6 +44,7 @@ const App = () => {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
       </Routes>
+
       <Toaster />
     </div>
   );

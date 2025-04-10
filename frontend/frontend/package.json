@@ -1,17 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "chat-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "npm run start --prefix backend"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-=======
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -24,7 +11,6 @@
   },
   "dependencies": {
     "axios": "^1.7.7",
-    "gsap": "^3.12.7",
     "lucide-react": "^0.459.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -49,5 +35,4 @@
     "tailwindcss": "^3.4.15",
     "vite": "^5.4.10"
   }
->>>>>>> 512accc (Initial frontend UI update with GSAP animations)
 }
